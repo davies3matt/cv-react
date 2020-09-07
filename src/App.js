@@ -1,61 +1,76 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import React, { Component} from 'react';
 import './App.css';
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { fab, faGithub } from '@fortawesome/free-brands-svg-icons'
-import { faCheckSquare, faCoffee, faRocket } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { render } from '@testing-library/react';
-
-library.add(fab, faCheckSquare, faCoffee, faGithub,faRocket)
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Home from './Home';
+import APItest from "./API_test";
 
 class App extends Component {
+
   constructor(props) {
     super(props);
-    this.state = {
-      items: [],
-      isLoaded: false,
-    }
+    this.state = {isToggleOn: true};
   }
 
-  componentDidMount() {
-    fetch('http://jsonplaceholder.typicode.com/users')
-    .then(res => res.json())
-    .then(json => {
-      this.setState({
-        isLoaded: true,
-        items: json,
-      })
-    });
-  }
+
 
   render() {
-
-    var { isLoaded, items } = this.state;
-
-    if (!isLoaded) {
-      return <div>Loading...</div>
-    }
-
-    else { 
       return (
-        <div className="container">
-          <h1 className="text-light" style={{fontSize: '70px'}}>Matthew Davies</h1>
-          <div className="btn-group mt-2 mb-4" role="group" aria-label="actionButtons">
-            <a href="https://codepen-api-export-production.s3.us-west-2.amazonaws.com/zip/PEN/pyBNzX/1578778289271/pure-css-gradient-background-animation.zip" className="d-block btn btn-outline-light" download><i className="fas fa-file-download mr-2" /><FontAwesomeIcon icon={faRocket} /> Start Tour</a>
-            <a href="https://github.com/davies3matt" target="_blank" className="d-block btn btn-outline-light"> <FontAwesomeIcon icon={faGithub} /> Visit My Github Profile<i className="fas fa-external-link-square-alt ml-2" /></a>
-          </div>
-          <ul>
-            {items.map(item => (
-              <li key={item.id}>
-                Name: {item.name} | E-mail: {item.email}
-              </li>
-            ))};
-          </ul>
-        </div>
+        <>
+          <Router>
+            <div className="hcontainer">
+              <Switch>
+                <Route path="/about">
+                  <About />
+                </Route>
+                <Route path="/users">
+                  <Users />
+                </Route>
+                <Route path="/">
+                  <Home></Home>
+                  <APItest></APItest>
+                  <div className="tcontainer">
+                    <div id="footerleftpane">
+                      <p>TESTI WESTI</p>
+                    </div>
+                    <div id="footerRightPane">
+                      <p>TESTI WESTI</p>
+                    </div>
+                    <div id="footerMidPane">
+                      <p>TESTI WESTI</p>
+                    </div>
+                  </div>
+                </Route>
+              </Switch>
+                              <ul>
+                  <li>
+                    <Link to="/">Home</Link>
+                  </li>
+                  <li>
+                    <Link to="/about">About</Link>
+                  </li>
+                  <li>
+                    <Link to="/users">Users</Link>
+                  </li>
+                </ul>
+            </div>
+          </Router>
+        </>
+        
+        
     );
-  }
-}}
+}
 
-ReactDOM.render(App, document.getElementById('root'));
+
+}
+
+
+
+function About() {
+  return <h1>About</h1>;
+}
+
+function Users() {
+  return <h1>Users</h1>;
+}
+
 export default App;

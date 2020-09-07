@@ -1,16 +1,19 @@
-body {
-	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-	background-size: 1500% 1500%;
-	animation: gradient 15s ease infinite;
-}
-
-
 .container {
-    display: grid;
+	margin-top: 50%;
+	margin-bottom: 50%;
+	display: grid;
+	background-size: cover;
     place-items: center;
-    margin-top: 10%;
 }
 
+.tcontainer {
+	padding-block: 10px;
+}
+
+.hcontainer {
+	place-items: center;
+	display: grid;
+}
 
 
 @keyframes gradient {
@@ -24,3 +27,8 @@ body {
 		background-position: 0% 50%;
 	}
 }
+
+#dnn_footerleftpane, #dnn_footerMidPane, #dnn_footerRightPane {
+	width: 300px;
+	float: left;
+  }
