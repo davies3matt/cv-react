@@ -6,3 +6,7 @@ An online technical web-app cv created using React
 - ~~Test Dummy API~~
 - ~~Basic Home Page Layout~~
 - ~~Dynamic Background~~
+- Interactive'Skill Blips'
+- Scrolling transition animations
+- Relevant API connection
+- Symmetrical element layout
