@@ -8,11 +8,11 @@ import nav from 'react-bootstrap/Nav';
 import { AnimatePresence, motion } from 'framer-motion';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab, faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faCheckSquare, faCoffee, faRocket, faPizzaSlice } from '@fortawesome/free-solid-svg-icons';
+import { faCheckSquare, faCoffee, faRocket, faPizzaSlice, faBook } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import $ from 'jquery'; 
 import interact from 'interactjs';
-library.add(fab, faCheckSquare, faCoffee, faGithub,faRocket);
+library.add(fab, faCheckSquare, faCoffee, faGithub,faRocket,faBook);
 
 
 
@@ -92,7 +92,9 @@ const pageTransition = {
 
 const pageStyle = {
   position: "absolute",
-  'margin-top' : "80px"
+   'width' : "1500px",
+  'margin-top' : "80px",
+  'margin-left' : "150px"
 };
 
 function About() {
@@ -105,22 +107,42 @@ function About() {
       variants={pageVariants}
       transition={pageTransition}
     >
-      <h1>About</h1>
-      <p>
-        Let's animate transitions between React Router routes with Framer Motion
-      </p>
-      <h2>Framer Motion</h2>
-      <p>
-        Framer Motion is a great library for animations in React easily and
-        quickly.
-      </p>
-      <h2>React Router</h2>
-      <p>One of the most well known routers in the React ecosystem.</p>
+     <div id ="wrapper">
+        <div className="page">
+              <div className="container">
+                  <h1 className="text-light" style={{fontSize: '70px'}}>About</h1>
+              </div>  
+            <div id="blipWrapper">
+              <div id="hexagon" className="tap-hexagon">
+                <FontAwesomeIcon icon={faBook}></FontAwesomeIcon>
+              </div> 
+              <div id="hexagon" className="tap-hexagon">
+              </div>
+              <div id="hexagon" className="tap-hexagon">
+              </div>
+              </div>
+              <br></br>
+              <div id="blipWrapper">
+              <div id="hexagon" className="tap-hexagon">
+              </div>
+              <div id="hexagon" className="tap-hexagon">
+              </div>
+              <div id="hexagon" className="tap-hexagon">
+              </div>
+              </div>
+        </div>
+        <div id="statsWrapper">
+              <h1>Test</h1>
+              <div id="hexagon" className="tap-hexagon">
+                <h1>CSS</h1>
+              </div>
+            </div>
+        </div>
     </motion.div>
   );
 }
 
-interact('.tap-target')
+  interact('.tap-hexagon')
   .on('tap', function (event) {
    // event.currentTarget.classList.toggle('switch-bg')
     event.currentTarget.classList.toggle('large')
@@ -223,36 +245,18 @@ function Home() {
       variants={pageVariants}
       transition={pageTransition}
     >
-      <div className="page">
-            <div className="container">
-                <h1 className="text-light" style={{fontSize: '70px'}}>Matthew Davies</h1>
-                <div className="btn-group mt-2 mb-4" role="group" aria-label="actionButtons">
-                    <button onClick={activateShow} className="d-block btn btn-outline-light" download><i className="fas fa-file-download mr-2" /><FontAwesomeIcon icon={faRocket} /> Start Tour</button>
-                    <a href="https://github.com/davies3matt" target="_blank" className="d-block btn btn-outline-light"> <FontAwesomeIcon icon={faGithub} /> Visit My Github Profile<i className="fas fa-external-link-square-alt ml-2" /></a>
-                </div>
-            </div>  
-          <div id="blipWrapper">
-            <div id="blipReact" className="tap-target">
-                  <h1>React</h1>
-            </div> 
-            <div id="blipAngular" className="tap-target">
-                  <h1>Angular</h1>
-            </div> 
-            <div id="blipCsharp" className="tap-target">
-                  <h1>C#</h1>
-            </div>
-            <div id="blipJava" className="tap-target">
-                  <h1>java</h1>
-            </div>
-            <div id="blipPython" className="tap-target">
-                  <h1>Python</h1>
-            </div>
-            <div id="blipCSS" className="tap-target">
-                  <h1>CSS</h1>
-            </div>
-          </div>
-        
+      <div id ="wrapper">
+        <div id="statsWrapper"></div>
+        <div className="page">
+              <div className="container">
+                  <h1 className="text-light" style={{fontSize: '70px'}}>Matthew Davies</h1>
+                  <div className="btn-group mt-2 mb-4" role="group" aria-label="actionButtons">
+                      <button onClick={activateShow} className="d-block btn btn-outline-light" download><i className="fas fa-file-download mr-2" /><FontAwesomeIcon icon={faRocket} /> Start Tour</button>
+                      <button href="https://github.com/davies3matt" target="_blank" className="d-block btn btn-outline-light"> <FontAwesomeIcon icon={faGithub} /> Visit My Github Profile<i className="fas fa-external-link-square-alt ml-2" /></button>
+                  </div>
+              </div>  
         </div>
+      </div>
     </motion.div>
   );
 

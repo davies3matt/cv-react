@@ -20,7 +20,6 @@
 
 .page {
 	text-align: center;
-	overflow: hidden;
 }
 
 .center {
@@ -98,8 +97,8 @@ nav li a {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	width: 16em;
-	height: 16em;
+	width: 12em;
+	height: 12em;
 	padding: 1em;
 	margin: 0 auto;
 	box-sizing: border-box;
@@ -109,13 +108,38 @@ nav li a {
 	font-size: 1.125em;
 	text-align: center;
 	color: #fff;
-	background-color: #29e;
+	background-color: indianred;
   
 	cursor: pointer;
 	touch-action: none;
 	user-select: none;
   
 	transition: all 0.3s;
+  }
+
+.tap-hexagon {
+	font-size: 1.125em;
+	text-align: center;
+	color: #fff;
+	background-color: indianred;
+  
+	cursor: pointer;
+	touch-action: none;
+	user-select: none;
+  
+	transition: all 0.3s;
+  
+}
+
+.tap-hexagon.switch-bg {
+	background-color: #f40;	
+}
+
+.tap-hexagon.large {
+	-webkit-transform: scale(1.25);
+	transform: scale(1.25);
+	-webkit-transform: rotate(360deg);
+	transform: rotate(360deg);
   }
   
   .tap-target.switch-bg {
@@ -134,47 +158,78 @@ nav li a {
 	transform: rotate(360deg);
   }
 
-#blipReact {
-	float: left;
-	border: 1 px solid red;
-	overflow: hidden;
-	margin: 20px;
-}
-
-#blipAngular {
-	border: 1 px solid green;
-	overflow: hidden;
-	float: left;
-	margin: 20px;
-}
-
-#blipCsharp {
-	overflow: hidden;
-	float: left;
-	margin: 20px;
-}
-
-#blipJava {
-	overflow: hidden;
-	float: left;
-	margin: 20px;
-}
-
-#blipPython {
-	overflow: hidden;
-	float: left;
-	margin: 20px;
+.container {
+	margin-bottom: 100px;
 }
 
 #blipWrapper {
 	width: 1000px;
-	border: 1px solid black;
-	overflow: hidden;
+	display: flex;
+	justify-content: center;
+ 	align-items: center;
 }
 
-#blipCSS {
+#wrapper {
+	display: flex;
+}
+
+#statsWrapper {
+	float: left;
 	overflow: hidden;
+	width:350px;
+	justify-content: center;
+	 align-items: center;
+	 text-align: center;
+}
+
+#hexagon {
 	float: left;
 	margin: 20px;
-}
+	width: 100px;
+	height: 57.735px;
+	background:#05c2c9;
+	position: relative;
+  }
+  #hexagon::before {
+	content: "";
+	position: absolute;
+	top: -28.8675px;
+	left: 0;
+	width: 0;
+	height: 0;
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	border-bottom: 28.8675px solid #05c2c9;
+  }
+  #hexagon::after {
+	content: "";
+	position: absolute;
+	bottom: -28.8675px;
+	left: 0;
+	width: 0;
+	height: 0;
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	border-top: 28.8675px solid #05c2c9;
+  }
 
+
+  /***** Zoom *****/
+  .zoom a:hover{
+	transform: scale(1.1);
+	transition: all ease 500ms;
+  }
+
+  a{
+	margin: auto;
+	background: #fff;
+	padding: 20px;
+	box-shadow: 0 0 25px #000;
+	margin-top: 30px;
+	border: 1px solid #444;  
+	text-align: center;
+	display: block;
+	color: #444;
+	text-decoration: none;
+	font-weight: bold;
+  }
