@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
 @keyframes gradient {
 	0% {
 		background-position: 0% 50%;
@@ -10,8 +12,19 @@
 	}
 }
 
+.container-hover {
+	border-style: solid;
+	border-color: whitesmoke;
+	padding: 20px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
-.row {
+.container-hover:hover {
+	background-color: salmon;
+	transition: 0.5s;
+}
+
+.gradient-bg {
 	background-size: cover;
 	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
 	background-size: 1500% 1500%;
@@ -22,12 +35,53 @@
 	text-align: center;
 }
 
+.space {
+	padding-top: 60px;
+}
+
+hr {
+	padding: 30px;
+	border-top: 1px solid whitesmoke;
+}
+
 .center {
 	margin: auto;
-	width: 60%;
-	border: 3px solid #73AD21;
-	padding: 10px;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
   }
+
+  .vertical-center {
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+  }
+
+  
+
+.container {
+	border-style: solid;
+	border-color: whitesmoke;
+	padding: 20px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+.img-circle {
+	border-radius: 50%;
+	margin-left: auto;
+	margin-right: 60%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+.bcenter {
+	left: 50%;
+	position: absolute;
+}
 
 @keyframes bounce-animation {
 	16.65% {
@@ -92,7 +146,6 @@ nav li a {
 	  -webkit-transform: rotate(0deg) scale(1) skew(0deg) translate(100px);
 	}
   }
-
 .tap-target {
 	display: flex;
 	flex-direction: column;
@@ -120,6 +173,7 @@ nav li a {
 .tap-hexagon {
 	font-size: 1.125em;
 	text-align: center;
+	align-items: center;
 	color: #fff;
 	background-color: indianred;
   
@@ -127,7 +181,7 @@ nav li a {
 	touch-action: none;
 	user-select: none;
   
-	transition: all 0.3s;
+	transition: all 0.5s;
   
 }
 
@@ -158,8 +212,11 @@ nav li a {
 	transform: rotate(360deg);
   }
 
-.container {
-	margin-bottom: 100px;
+
+.h-skill {
+	text-align: center;
+	padding-top: 30px;
+	font-weight: bold;
 }
 
 #blipWrapper {
@@ -183,12 +240,11 @@ nav li a {
 }
 
 #hexagon {
-	float: left;
-	margin: 20px;
 	width: 100px;
 	height: 57.735px;
 	background:#05c2c9;
 	position: relative;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
   #hexagon::before {
 	content: "";
@@ -224,7 +280,6 @@ nav li a {
 	margin: auto;
 	background: #fff;
 	padding: 20px;
-	box-shadow: 0 0 25px #000;
 	margin-top: 30px;
 	border: 1px solid #444;  
 	text-align: center;
@@ -232,4 +287,51 @@ nav li a {
 	color: #444;
 	text-decoration: none;
 	font-weight: bold;
+  }
+
+  .progressbar-container {
+	position: relative;
+	width: 100%;
+	height: 50px;
+	border: 1px solid #fff;
+	border-radius: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+.progressbar-container .progressbar-complete {
+	position: absolute;
+	left: 0;
+	top: 0px;
+	height: 100%;
+	background-color: #5225bd;
+	border-radius: 10px;
+	animation: g 2500ms infinite ease-in-out;
+	z-index: 2;
+}
+.progressbar-container .progressbar-complete .progressbar-liquid {
+	overflow: hidden;
+	z-index: 1;
+	width: 70px;
+	height: 70px;
+	animation: g 2500ms infinite ease-in-out, r 3000ms infinite cubic-bezier(0.5, 0.5, 0.5, 0.5);
+	position: absolute;
+	right: -5px;
+	top: -10px;
+	background-color: #5225bd;
+	border-radius: 40%;
+}
+.progressbar-container .progress {
+	z-index: 2;
+}
+
+@keyframes g {
+	0% { background-color: salmon; }
+	100% { background-color: salmon; }
+  }
+  
+  @keyframes r {
+	from { transform: rotate(0deg); }
+	from { transform: rotate(360deg); }
   }
