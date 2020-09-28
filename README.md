@@ -27,3 +27,4 @@ An online technical web-app cv created using React
 - ~~Symmetrical element layout~~
 - Contact Page
 - Individual Skill Wobbles
+- Better Hexagon Shading
