@@ -1,6 +1,6 @@
 import React, { useRef, useLayoutEffect} from 'react';
 import './App.css';
-import './HomeC.js';
+import DivScroll from './DivScroll.js';
 import { BrowserRouter as Router, Switch, Route, Link, NavLink, useLocation } from "react-router-dom";
 import APItest from "./API_test";
 import { AnimatePresence, motion } from 'framer-motion';
@@ -27,14 +27,21 @@ $(function () {
 });
 
 function App() {
+
   const location = useLocation();
+
+  function changeNav() {
+    if(window.pageYOffset > 0)
+    $('.navbar').addClass('active');
+    console.log(window.pageYOffset);
+  }
   
   return (
     
     <>
-    <div className="container-fluid bg-light" style={{ height: "100vh" }}>
-          <nav className="navbar navbar-expand-lg fixed-top py-3">
-            <div className="container">
+    <div className="container-fluid bg-light" style={{display: 'inline-block',width: '100%', height: "100vh" }}>
+          <nav className="navbar navbar-expand-lg fixed-top py-3" style={{display: 'inline-block', width: '100%'}}>
+            <div className="nav-container center">
               <div id="navbarSupportedContent" className="collapse navbar-collapse">
                 <ul className="navbar-nav center">
                   <li className="nav-item"><NavLink to = "/" className="nav-link text-uppercase font-weight-bold">Home<span className="sr-only">(current)</span></NavLink></li>
@@ -46,10 +53,10 @@ function App() {
               </div>
             </div>
           </nav>
-          <div className="row gradient-bg" style={{ height: "100vh" }}>
+          <div className="row gradient-bg" style={{ height: "290vh" }} onScroll={changeNav}>
         <main
           className="col-md-12"
-          style={{ overflowX: "hidden", position: "relative" }}
+          style={{width:'100%', display: 'inline-block', position: "relative" }}
         >
           <div className="spacer"></div>
           <AnimatePresence>
@@ -92,7 +99,8 @@ const pageTransition = {
 
 const pageStyle = {
   position: "absolute",
-   'width' : "100%",
+  width : "100%",
+  display : 'inline-block'
 };
 
 function NewAbout() {
@@ -104,7 +112,6 @@ function NewAbout() {
 
   return (
     <motion.div
-      style={pageStyle}
       initial="initial"
       animate="in"
       exit="out"
@@ -252,7 +259,15 @@ function NewAbout() {
             <br></br>
           </div>
           <div className="col-md-6">
-
+          <div className="container center">
+              <h2 className="text-light center" style={{paddingTop: '30px'}}>BACHELOR OF SCIENCE, MAJOR IN INFORMATION TECHNOLOGY</h2>
+              <br></br>
+              <img className="center" src="https://i.imgur.com/mTl82x8.png" style={{width: '400px', height: 'auto'}}></img>
+              <div className="btn-group mt-2 mb-4" role="group" aria-label="actionButtons">
+                <a href="http://www.nwu.ac.za/" target="_blank" className="d-block btn btn-outline-light" download><i className="fas fa-file-download mr-2" /><FontAwesomeIcon icon={faRocket} /> Visit NWU</a>
+               <a href="http://www.nwu.ac.za/sites/www.nwu.ac.za/files/files/p-csis/documents/BSc_in_IT.pdf" target="_blank" className="d-block btn btn-outline-light"> <FontAwesomeIcon icon={faBinoculars} /> View Degree Summary<i className="fas fa-external-link-square-alt ml-2" /></a>
+             </div>
+            </div>
           </div>
        </div>
         <br></br>
@@ -361,6 +376,7 @@ function activateShow() {
 
 
 function Home() {
+
   return (
     <motion.div
       style={pageStyle}
@@ -380,6 +396,7 @@ function Home() {
            </div>
           </div>
         </div>
+        <DivScroll></DivScroll>
       </div>
     </motion.div>
   );
