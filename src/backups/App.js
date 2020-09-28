@@ -1,8 +1,10 @@
-import React, { useRef, useLayoutEffect} from 'react';
+import React, { Component} from 'react';
 import './App.css';
 import './HomeC.js';
 import { BrowserRouter as Router, Switch, Route, Link, NavLink, useLocation } from "react-router-dom";
 import APItest from "./API_test";
+import navbar from 'react-bootstrap/Navbar';
+import nav from 'react-bootstrap/Nav';
 import { AnimatePresence, motion } from 'framer-motion';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab, faGithub } from '@fortawesome/free-brands-svg-icons';
@@ -13,45 +15,42 @@ import interact from 'interactjs';
 library.add(fab, faCheckSquare, faCoffee, faGithub,faRocket,faBook, faPallet, faFistRaised, faClipboardList,faComments, faClock);
 
 
-$(function () {
-  $(window).on('scroll', function () {
-    console.log('Scrolled!');
-      if ( $(window).scrollTop() > 10 ) {
-          $('.navbar').addClass('active');
-          console.log($(window).scrollTop());
-      } else {
-          $('.navbar').removeClass('active');
-          
-      }
-  });
-});
 
 function App() {
-  const location = useLocation();
   
+  const location = useLocation();
+
   return (
     
     <>
     <div className="container-fluid bg-light" style={{ height: "100vh" }}>
-          <nav className="navbar navbar-expand-lg fixed-top py-3">
-            <div className="container">
-              <div id="navbarSupportedContent" className="collapse navbar-collapse">
-                <ul className="navbar-nav center">
-                  <li className="nav-item"><NavLink to = "/" className="nav-link text-uppercase font-weight-bold">Home<span className="sr-only">(current)</span></NavLink></li>
-                  <li className="nav-item "><NavLink to ="/about" className="nav-link text-uppercase font-weight-bold">About</NavLink></li>
-                  <li className="nav-item"><a href="#" className="nav-link text-uppercase font-weight-bold">Gallery</a></li>
-                  <li className="nav-item"><a href="#" className="nav-link text-uppercase font-weight-bold">Portfolio</a></li>
-                  <li className="nav-item"><a href="#" className="nav-link text-uppercase font-weight-bold">Contact</a></li>
-                </ul>
-              </div>
-            </div>
-          </nav>
-          <div className="row gradient-bg" style={{ height: "100vh" }}>
+      <div className="row gradient-bg">
+        <nav
+          className="col-6 col-sm-4 col-md-2 bg-dark py-5"
+          style={{ height: "100vh", zIndex: 1000 }}
+        >
+          <ul className="nav nav-pills flex-column">
+            <li className="nav-item">
+              <NavLink to="/" exact className="nav-link text-white">
+                Home
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to="/about" className="nav-link text-white">
+                About
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to="/settings" className="nav-link text-white">
+                Settings
+              </NavLink>
+            </li>
+          </ul>
+        </nav>
         <main
-          className="col-md-12"
+          className="col-6 col-sm-8 col-md-10 py-5"
           style={{ overflowX: "hidden", position: "relative" }}
         >
-          <div className="spacer"></div>
           <AnimatePresence>
             <Switch location={location} key={location.pathname}>
               <Route path="/about" component={NewAbout} />
@@ -92,7 +91,7 @@ const pageTransition = {
 
 const pageStyle = {
   position: "absolute",
-   'width' : "100%",
+   'width' : "1600px",
 };
 
 function NewAbout() {
@@ -349,14 +348,9 @@ function Settings() {
 }
 
 function activateShow() {
-  console.log('The link was clicked.');
-  if ( $(window).scrollTop() > 10 ) {
-    $('.navbar').addClass('active');
-    console.log($(window).scrollTop());
-} else {
-    $('.navbar').removeClass('active');
-    
-}
+  var x = document.getElementById("blipReact");
+    document.getElementById('blipReact').className = "rotateAni tap-target";
+    x.style.display = "flex";
   }
 
 
