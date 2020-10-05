@@ -44,6 +44,22 @@ hr {
 	border-top: 1px solid whitesmoke;
 }
 
+.fixed-footer{
+	bottom: 0;
+	width: 100%;       
+    padding: 10px 0;
+    color: #fff;
+} 
+
+.fixed-footer:hover {
+	background: white;
+	transition: 0.5s;
+}
+
+.container-footer {
+	width: 100%;
+}
+
 .center {
 	margin: auto;
 	text-align: center;
@@ -91,6 +107,7 @@ hr {
 	position: absolute;
 }
 
+
 @keyframes bounce-animation {
 	16.65% {
 		-webkit-transform: translateY(8px);
@@ -131,10 +148,6 @@ hr {
     color: #fff;
 }
 
-.spacer {
-	height: 200px;
-}
-
 .navbar .nav-link:hover,
 .navbar .nav-link:focus {
     color: #fff;
@@ -143,6 +156,20 @@ hr {
 
 .navbar .navbar-brand {
     color: #fff;
+}
+
+.vl-right {
+	border-right: 6px solid white;
+	height: 200px;
+	opacity: 60%;
+	border-radius: 5px;
+}
+
+.vl-left {
+	border-left: 6px solid white;
+	height: 200px;
+	opacity: 60%;
+	border-radius: 5px;
 }
 
 .navbar.active {
@@ -162,6 +189,7 @@ hr {
 .navbar.active .navbar-brand {
     color: #555;
 }
+
 
 .rotateAni {
 	animation-name: cssAnimation;
@@ -333,6 +361,7 @@ hr {
 	animation: g 2500ms infinite ease-in-out;
 	z-index: 2;
 }
+
 .progressbar-container .progressbar-complete .progressbar-liquid {
 	overflow: hidden;
 	z-index: 1;
