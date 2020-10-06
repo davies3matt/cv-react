@@ -1,5 +1,7 @@
 # Online Technical CV
 
+View Deployment: https://davies3matt.github.io/cv-react/
+
 ## Introduction
 Hi there! I created this website from scratch using React. Along the way I learned a lot about React, HTML and CSS. Having studied the more "back-end" langauges I thouroughly enjoyed the challenge of getting to know the designer/UI focused langauges. That being said I still added back-end functionality, like the EmailJS API for forwarding potential messages to my e-mail address and a handful of animation/transition triggers. 
 
