@@ -1,23 +1,18 @@
-import React, { useRef, useLayoutEffect} from 'react';
+import React from 'react';
 import './App.css';
-import './Spotify.js';
-import './Player.js';
-import DivScroll from './DivScroll.js';
-import { BrowserRouter as Router, Switch, Route, Link, NavLink, useLocation } from "react-router-dom";
-import APItest from "./API_test";
+import { Switch, Route, NavLink, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from 'framer-motion';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faAngular, fab, faGithub, faNodeJs } from '@fortawesome/free-brands-svg-icons';
+import { fab, faGithub} from '@fortawesome/free-brands-svg-icons';
 import { faCheckSquare, faCoffee, faRocket, faPallet, faBook, faPalette, faFistRaised, faClipboardList,faComments,faClock, faBinoculars} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import $ from 'jquery'; 
 import interact from 'interactjs';
-import Spotify from './Spotify.js';
-import Player from './Player.js';
-import './Mail_C';
-import Mail_C from './Mail_C';
+import './Mail';
+import Mail from './Mail';
 library.add(fab, faCheckSquare, faCoffee, faGithub,faRocket,faBook, faPallet, faFistRaised, faClipboardList,faComments, faClock);
 
+//OnScroll Nav-bar effect
 $(function () {
   $(window).on('scroll', function () {
     console.log('Scrolled!');
@@ -64,18 +59,32 @@ function App() {
           <div style={{height: '150px'}}> </div>
           <AnimatePresence>
             <Switch location={location} key={location.pathname}>
-              <Route path="/about" component={NewAbout} />
+              <Route path="/about" component={About} />
               <Route path="/contact" component={Contact} />
               <Route path="/" component={Home} />
             </Switch>
           </AnimatePresence>
         </main>
+        <div className="footer">
+        <div className="row">
+          <div className="col-md-4 center">
+            <ul class="social-icons">
+                <li><a href="https://www.facebook.com/matthew.davies.1000" target="_blank" rel="noopener noreferrer" class="social-icon"> <i class="fa fa-facebook"></i></a></li>
+                <li><a href="https://twitter.com/bhaz26609816" target="_blank" rel="noopener noreferrer" class="social-icon"> <i class="fa fa-twitter"></i></a></li>
+                <li><a href="https://www.youtube.com/channel/UC5uwwIP1u6ZQfMD1A8VeWdg?view_as=subscriber" target="_blank" rel="noopener noreferrer" class="social-icon"> <i class="fa fa-youtube"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/matthew-davies-a930a8153/" target="_blank" rel="noopener noreferrer" class="social-icon"> <i class="fa fa-linkedin"></i></a></li>
+                <li><a href="https://github.com/davies3matt" target="_blank" rel="noopener noreferrer" class="social-icon"> <i class="fa fa-github"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
       </div>
     </div>
     </>
   );
 }
 
+//Page Transistion & Animation Constants
 const pageVariants = {
   initial: {
     opacity: 0,
@@ -100,13 +109,8 @@ const pageTransition = {
   duration: 0.5
 };
 
-const pageStyle = {
-  position: "absolute",
-  width : "100%",
-  display : 'inline-block'
-};
-
-function NewAbout() {
+//About Page
+function About() {
   const progressAngular = 40;
   const progressReact = 50;
   const progressHtml = 70;
@@ -128,7 +132,7 @@ function NewAbout() {
         <div className="container">
           <div className="row">
            <div className="col-md-5">
-            <img className="img-circle" src="https://i.imgur.com/4f7ApkG.png"></img>
+            <img className="img-circle" src="https://i.imgur.com/4f7ApkG.png" alt="Matthew Davies profile"></img>
 	         </div>
 		       <div className="col-md-6">
              <div className="row">
@@ -277,11 +281,11 @@ function NewAbout() {
             <div className="container center">
               <h2 className="text-light center" style={{paddingTop: '30px'}}>BACHELOR OF SCIENCE, MAJOR IN INFORMATION TECHNOLOGY</h2>
               <br></br>
-              <img className="center" src="https://i.imgur.com/mTl82x8.png" style={{width: '400px', height: 'auto'}}></img>
+              <img className="center" src="https://i.imgur.com/mTl82x8.png" style={{width: '400px', height: 'auto'}} alt="NWU logo"></img>
               <div className="row center" style={{paddingTop:'40px', paddingBottom: '15px'}}>
                 <div className="btn-group mt-2 mb-4" role="group" aria-label="actionButtons">
-                  <a href="http://www.nwu.ac.za/" target="_blank" className="d-block btn btn-outline-light" download><i className="fas fa-file-download mr-2" /><FontAwesomeIcon icon={faRocket} /> Visit NWU</a>
-                <a href="http://www.nwu.ac.za/sites/www.nwu.ac.za/files/files/p-csis/documents/BSc_in_IT.pdf" target="_blank" className="d-block btn btn-outline-light"> <FontAwesomeIcon icon={faBinoculars} /> View Degree Summary<i className="fas fa-external-link-square-alt ml-2" /></a>
+                  <a href="http://www.nwu.ac.za/" target="_blank" rel="noopener noreferrer" className="d-block btn btn-outline-light" download><i className="fas fa-file-download mr-2" /><FontAwesomeIcon icon={faRocket} /> Visit NWU</a>
+                <a href="http://www.nwu.ac.za/sites/www.nwu.ac.za/files/files/p-csis/documents/BSc_in_IT.pdf" target="_blank" rel="noopener noreferrer" className="d-block btn btn-outline-light"> <FontAwesomeIcon icon={faBinoculars} /> View Degree Summary<i className="fas fa-external-link-square-alt ml-2" /></a>
               </div>
              </div>
             </div>
@@ -291,16 +295,15 @@ function NewAbout() {
             <div className="container">
                 <h2 className="text-light center" style={{paddingTop: '30px'}}>UDEMY COURSES</h2>
                 <div className="row center">
-                  <img src="https://seeklogo.com/images/A/angular-logo-B76B1CDE98-seeklogo.com.png" style={{width: '100px', height: 'auto', paddingTop: '30px'}}></img>
-                  <img src="https://img.icons8.com/color/452/nodejs.png" style={{width: '150px', height: 'auto', paddingLeft: '30px', paddingTop: '30px'}}></img>
-                  <img src="https://ionicframework.com/blog/wp-content/uploads/2015/05/cropped-logo.png" style={{width: '120px', height: 'auto', paddingLeft: '30px', paddingTop: '30px'}}></img>
+                  <img src="https://seeklogo.com/images/A/angular-logo-B76B1CDE98-seeklogo.com.png" style={{width: '100px', height: 'auto', paddingTop: '30px'}} alt="angular logo"></img>
+                  <img src="https://img.icons8.com/color/452/nodejs.png" style={{width: '150px', height: 'auto', paddingLeft: '30px', paddingTop: '30px'}} alt="nodejs logo"></img>
+                  <img src="https://ionicframework.com/blog/wp-content/uploads/2015/05/cropped-logo.png" style={{width: '120px', height: 'auto', paddingLeft: '30px', paddingTop: '30px'}} alt="ionic logo"></img>
                 </div>
-                <div className="row center">
+                <div className="row center" style={{paddingBottom: "28px"}}>
                 <div className="btn-group mt-2 mb-4" role="group" aria-label="actionButtons" style={{paddingLeft: '30px', paddingRight: '30px', paddingTop: '30px'}}>
-                  <a href="http://www.nwu.ac.za/" target="_blank" className="d-block btn btn-outline-light" download><i className="fas fa-file-download mr-2" /> Angular - The Complete Guide (2020 Edition)</a>
-                  <a href="http://www.nwu.ac.za/" target="_blank" className="d-block btn btn-outline-light" download><i className="fas fa-file-download mr-2" />Angular, Ionic & Node: Build A Real Web & Mobile Chat App</a>
+                  <a href="https://www.udemy.com/course/the-complete-guide-to-angular-2/" target="_blank" rel="noopener noreferrer" className="d-block btn btn-outline-light" download><i className="fas fa-file-download mr-2" /> Angular - The Complete Guide (2020 Edition)</a>
+                  <a href="https://www.udemy.com/course/angular-ionic-node-build-a-real-web-mobile-chat-app/" target="_blank" rel="noopener noreferrer" className="d-block btn btn-outline-light" download><i className="fas fa-file-download mr-2" />Angular, Ionic & Node: Build A Real Web & Mobile Chat App</a>
                 </div>
-                  <h2 className="text-light" style={{paddingTop: '20px', fontSize: '28px'}}></h2>
                 </div>
             </div>
           </div>
@@ -312,6 +315,7 @@ function NewAbout() {
   )
 }
 
+  //Hexagon OnClick Animation Function
   interact('.tap-hexagon')
   .on('tap', function (event) {
    // event.currentTarget.classList.toggle('switch-bg')
@@ -328,9 +332,8 @@ function NewAbout() {
     event.currentTarget.classList.toggle('large')
   })
 
-
+//Home Page
 function Home() {
-
   return (
     <motion.div
       initial="initial"
@@ -344,8 +347,8 @@ function Home() {
           <div className="col-md-12 center">
            <h1 className="text-light center" style={{fontSize: '70px'}}>Hello there!</h1>
            <div className="btn-group mt-2 mb-4" style={{padding: '10px'}}role="group" aria-label="actionButtons">
-            <a className="d-block btn btn-outline-light" download><i className="fas fa-file-download mr-2" /><NavLink to ="/about" className="text-light">Start Tour <FontAwesomeIcon icon={faRocket} /></NavLink></a>
-            <a href="https://github.com/davies3matt" target="https://github.com/davies3matt" className="d-block btn btn-outline-light"> <FontAwesomeIcon icon={faGithub} /> Visit My Github Profile<i className="fas fa-external-link-square-alt ml-2" /></a>
+            <button className="d-block btn btn-outline-light" download><i className="fas fa-file-download mr-2" /><NavLink to ="/about" className="text-light">Start Tour <FontAwesomeIcon icon={faRocket} /></NavLink></button>
+            <a href="https://github.com/davies3matt" target="_blank" rel="noopener noreferrer" className="d-block btn btn-outline-light"> Visit My Github Profile<i className="fas fa-external-link-square-alt ml-2" /></a>
            </div>
           </div>
         </div>
@@ -355,8 +358,8 @@ function Home() {
   );
 }
 
+//Contact Page
 function Contact() {
-
   return (
     <motion.div
       initial="initial"
@@ -369,7 +372,7 @@ function Contact() {
         <div className="row">
           <div className="col-md-12 center">
            <div className="container">
-           <Mail_C></Mail_C>
+           <Mail></Mail>
            </div>
           </div>
         </div>
