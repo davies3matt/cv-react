@@ -1,25 +1,26 @@
 {
   "files": {
-    "main.css": "/cv-react/static/css/main.322784c5.chunk.css",
-    "main.js": "/cv-react/static/js/main.6164b595.chunk.js",
-    "main.js.map": "/cv-react/static/js/main.6164b595.chunk.js.map",
+    "main.css": "/cv-react/static/css/main.5ca08fd9.chunk.css",
+    "main.js": "/cv-react/static/js/main.4e661137.chunk.js",
+    "main.js.map": "/cv-react/static/js/main.4e661137.chunk.js.map",
     "runtime-main.js": "/cv-react/static/js/runtime-main.7c56a94f.js",
     "runtime-main.js.map": "/cv-react/static/js/runtime-main.7c56a94f.js.map",
-    "static/css/2.373572e1.chunk.css": "/cv-react/static/css/2.373572e1.chunk.css",
-    "static/js/2.c25e46c3.chunk.js": "/cv-react/static/js/2.c25e46c3.chunk.js",
-    "static/js/2.c25e46c3.chunk.js.map": "/cv-react/static/js/2.c25e46c3.chunk.js.map",
+    "static/css/2.2d63d0b4.chunk.css": "/cv-react/static/css/2.2d63d0b4.chunk.css",
+    "static/js/2.fa3d6dd3.chunk.js": "/cv-react/static/js/2.fa3d6dd3.chunk.js",
+    "static/js/2.fa3d6dd3.chunk.js.map": "/cv-react/static/js/2.fa3d6dd3.chunk.js.map",
     "index.html": "/cv-react/index.html",
-    "precache-manifest.23e8c8431403e758cd7cf85b7458bba0.js": "/cv-react/precache-manifest.23e8c8431403e758cd7cf85b7458bba0.js",
+    "precache-manifest.88d3ce5085d2115f2aea4b25376795b4.js": "/cv-react/precache-manifest.88d3ce5085d2115f2aea4b25376795b4.js",
     "service-worker.js": "/cv-react/service-worker.js",
-    "static/css/2.373572e1.chunk.css.map": "/cv-react/static/css/2.373572e1.chunk.css.map",
-    "static/css/main.322784c5.chunk.css.map": "/cv-react/static/css/main.322784c5.chunk.css.map",
-    "static/js/2.c25e46c3.chunk.js.LICENSE.txt": "/cv-react/static/js/2.c25e46c3.chunk.js.LICENSE.txt"
+    "static/css/2.2d63d0b4.chunk.css.map": "/cv-react/static/css/2.2d63d0b4.chunk.css.map",
+    "static/css/main.5ca08fd9.chunk.css.map": "/cv-react/static/css/main.5ca08fd9.chunk.css.map",
+    "static/js/2.fa3d6dd3.chunk.js.LICENSE.txt": "/cv-react/static/js/2.fa3d6dd3.chunk.js.LICENSE.txt",
+    "static/media/weather-icons.css": "/cv-react/static/media/weathericons-regular-webfont.ecaf8b48.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.7c56a94f.js",
-    "static/css/2.373572e1.chunk.css",
-    "static/js/2.c25e46c3.chunk.js",
-    "static/css/main.322784c5.chunk.css",
-    "static/js/main.6164b595.chunk.js"
+    "static/css/2.2d63d0b4.chunk.css",
+    "static/js/2.fa3d6dd3.chunk.js",
+    "static/css/main.5ca08fd9.chunk.css",
+    "static/js/main.4e661137.chunk.js"
   ]
 }
