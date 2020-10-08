@@ -3,7 +3,7 @@ import React from 'react';
 export default class extends React.Component {
   constructor(props) {
 	super(props);
-	this.state = { feedback: '', name: 'Name', email: 'mdldavies@gmail.com' };
+	this.state = { feedback: '', name: 'Name', email: '' , hunterCode: ''};
 	this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleName = this.handleName.bind(this);
@@ -13,16 +13,17 @@ export default class extends React.Component {
   render() {
 	return (
   	<form className="test-mailing">
-    	<h1 className="text-light">Contact Me!</h1>
     	<div>
+        <h1 className="center text-light">Contact Me!</h1>
+        <br></br>
         <textarea 
             placeholder="Name"
-            style={{width: '100%', height: '35px'}}
+            style={{width: '100%', height: '35px', background: "darkslategray", color: 'white'}}
             onChange={this.handleName}>
         </textarea>
         <textarea 
             placeholder="Enter email"
-            style={{width: '100%', height: '35px'}}
+            style={{width: '100%', height: '35px', background: "darkslategray", color: 'white'}}
             onChange={this.handleMail}
             >
 
@@ -33,7 +34,7 @@ export default class extends React.Component {
         	placeholder="Your message"
         	required
         	value={this.state.feedback}
-        	style={{width: '100%', height: '150px'}}
+        	style={{width: '100%', height: '150px', background: "darkslategray", color: 'white'}}
       	/>
     	</div>
     	<input type="button" value="Submit" className="btn btn-dark" onClick={this.handleSubmit} />

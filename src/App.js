@@ -4,21 +4,21 @@ import { Switch, Route, NavLink, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from 'framer-motion';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab, faGithub} from '@fortawesome/free-brands-svg-icons';
-import { faCheckSquare, faCoffee, faRocket, faPallet, faBook, faPalette, faFistRaised, faClipboardList,faComments,faClock, faBinoculars} from '@fortawesome/free-solid-svg-icons';
+import { faCheckSquare, faCoffee, faRocket, faPallet, faBook, faPalette, faFistRaised, faClipboardList,faComments,faClock, faBinoculars, faFileDownload, faDownload} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import $ from 'jquery'; 
 import interact from 'interactjs';
 import './Mail';
-import Mail from './Mail';
+import WeatherApp from "./WeatherApp.js";
+import Mail from './Mail.js';
+import DictionaryApp from './DictionaryApp.js';
 library.add(fab, faCheckSquare, faCoffee, faGithub,faRocket,faBook, faPallet, faFistRaised, faClipboardList,faComments, faClock);
 
 //OnScroll Nav-bar effect
 $(function () {
   $(window).on('scroll', function () {
-    console.log('Scrolled!');
       if ( $(window).scrollTop() > 10 ) {
           $('.navbar').addClass('active');
-          console.log($(window).scrollTop());
       } else {
           $('.navbar').removeClass('active');
           
@@ -47,6 +47,7 @@ function App() {
                   <li className="nav-item"><NavLink to = "/" className="nav-link text-uppercase font-weight-bold">Home<span className="sr-only">(current)</span></NavLink></li>
                   <li className="nav-item "><NavLink to ="/about" className="nav-link text-uppercase font-weight-bold">About</NavLink></li>
                   <li className="nav-item "><NavLink to ="/contact" className="nav-link text-uppercase font-weight-bold">Contact</NavLink></li>
+                  <li className="nav-item "><NavLink to ="/services" className="nav-link text-uppercase font-weight-bold">Services</NavLink></li>
                 </ul>
               </div>
             </div>
@@ -61,19 +62,20 @@ function App() {
             <Switch location={location} key={location.pathname}>
               <Route path="/about" component={About} />
               <Route path="/contact" component={Contact} />
-              <Route path="/" component={Home} />
+              <Route path="/services" component={Service}/> 
+              <Route path="/" component={Home} />  
             </Switch>
           </AnimatePresence>
         </main>
         <div className="footer">
         <div className="row">
           <div className="col-md-4 center">
-            <ul class="social-icons">
-                <li><a href="https://www.facebook.com/matthew.davies.1000" target="_blank" rel="noopener noreferrer" class="social-icon"> <i class="fa fa-facebook"></i></a></li>
-                <li><a href="https://twitter.com/bhaz26609816" target="_blank" rel="noopener noreferrer" class="social-icon"> <i class="fa fa-twitter"></i></a></li>
-                <li><a href="https://www.youtube.com/channel/UC5uwwIP1u6ZQfMD1A8VeWdg?view_as=subscriber" target="_blank" rel="noopener noreferrer" class="social-icon"> <i class="fa fa-youtube"></i></a></li>
-                <li><a href="https://www.linkedin.com/in/matthew-davies-a930a8153/" target="_blank" rel="noopener noreferrer" class="social-icon"> <i class="fa fa-linkedin"></i></a></li>
-                <li><a href="https://github.com/davies3matt" target="_blank" rel="noopener noreferrer" class="social-icon"> <i class="fa fa-github"></i></a></li>
+            <ul className="social-icons">
+                <li><a href="https://www.facebook.com/matthew.davies.1000" target="_blank" rel="noopener noreferrer" className="social-icon"> <i className="fa fa-facebook"></i></a></li>
+                <li><a href="https://twitter.com/bhaz26609816" target="_blank" rel="noopener noreferrer" className="social-icon"> <i className="fa fa-twitter"></i></a></li>
+                <li><a href="https://www.youtube.com/channel/UC5uwwIP1u6ZQfMD1A8VeWdg?view_as=subscriber" target="_blank" rel="noopener noreferrer" className="social-icon"> <i className="fa fa-youtube"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/matthew-davies-a930a8153/" target="_blank" rel="noopener noreferrer" className="social-icon"> <i className="fa fa-linkedin"></i></a></li>
+                <li><a href="https://github.com/davies3matt" target="_blank" rel="noopener noreferrer" className="social-icon"> <i className="fa fa-github"></i></a></li>
             </ul>
           </div>
         </div>
@@ -165,7 +167,7 @@ function About() {
               <FontAwesomeIcon icon={faPalette} size="3x"></FontAwesomeIcon>
             </div>
             <h2 className="h-skill text-light">Creative</h2>
-            <p className="text-light center">My projects always include inspiring flares and inventive layouts.</p>
+            <p className="text-light center">My projects always include sublte flares and clean layouts.</p>
           </div>
           <div className="col-md-4">
           <div id="hexagon" className="tap-hexagon center">
@@ -348,12 +350,39 @@ function Home() {
            <h1 className="text-light center" style={{fontSize: '70px'}}>Hello there!</h1>
            <div className="btn-group mt-2 mb-4" style={{padding: '10px'}}role="group" aria-label="actionButtons">
             <button className="d-block btn btn-outline-light" download><i className="fas fa-file-download mr-2" /><NavLink to ="/about" className="text-light">Start Tour <FontAwesomeIcon icon={faRocket} /></NavLink></button>
-            <a href="https://github.com/davies3matt" target="_blank" rel="noopener noreferrer" className="d-block btn btn-outline-light"> Visit My Github Profile<i className="fas fa-external-link-square-alt ml-2" /></a>
+            <a href="https://drive.google.com/uc?export=download&id=1sHNgxlDoiWYQgxtY-9-6m3uJaDVvkIjE" download target="_blank" rel="noopener noreferrer" className="d-block btn btn-outline-light"> Download My CV! <FontAwesomeIcon icon={faDownload}></FontAwesomeIcon><i className="fas fa-external-link-square-alt ml-2" /></a>
            </div>
           </div>
         </div>
-        <div className="container-space" style={{height: '700px'}}></div>
+        <div className="container-space" style={{height: '540px'}}>
       </div>
+      </div>  
+    </motion.div>
+  );
+}
+
+//Service Page
+function Service() {
+  return (
+    <motion.div
+      initial="initial"
+      animate="in"
+      exit="out"
+      variants={pageVariants}
+      transition={pageTransition}
+    >
+      <div className="container-fluid center text-light" style={{paddingBottom: "30px"}}>
+        <h1>Weather</h1>
+        <div className="row center">
+         <h3>Curious About today's forecast?</h3>
+        </div> 
+        <WeatherApp></WeatherApp>
+        <br></br>
+        <hr style={{borderTop : '2px dashed white', width: "60%"}}></hr>
+        <h1>Dictionary</h1>
+        <DictionaryApp></DictionaryApp>
+      </div>
+      <hr style={{borderTop : '2px dashed white', width: "60%"}}></hr>
     </motion.div>
   );
 }
@@ -376,7 +405,7 @@ function Contact() {
            </div>
           </div>
         </div>
-        <div className="container-space" style={{height: '700px'}}></div>
+        <div className="container-space" style={{height: '250px'}}></div>
       </div>
     </motion.div>
   );
