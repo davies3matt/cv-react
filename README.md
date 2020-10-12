@@ -36,6 +36,12 @@ I challanged myself to create all elements personally, using tutorials and templ
 - Contact form for potential connections
 - Features the EmailJS API that forwards any messages automatically to my e-mail address
 
+## Services Page
+- In/Out Animation
+- Animated Gradient background
+- Weather Service that features an OpenWeatherMapAPI connection to get the current weather forecast
+- Dictionary Service (Working Progress)
+
 
 # To-Do List:
 - ~~Create Initial Files~~
@@ -46,6 +52,9 @@ I challanged myself to create all elements personally, using tutorials and templ
 - ~~Scrolling transition animations~~
 - ~~Relevant API connection~~
 - ~~Symmetrical element layout~~
+- ~~Weather Service~~
+- ~~automated e-mails~~
 - Individual Skill Wobbles
 - Better Hexagon Shading
+- Dictionary Service
 - ~~Contact Page~~
